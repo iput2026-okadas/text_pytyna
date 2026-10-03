@@ -35,7 +35,7 @@
      <enum>Qt::ScrollBarAlwaysOn</enum>
     </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton_1">
+   <widget class="QRadioButton" name="RadioButton_1">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -56,7 +56,7 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton_2">
+   <widget class="QRadioButton" name="RadioButton_2">
     <property name="geometry">
      <rect>
       <x>170</x>
@@ -72,19 +72,6 @@
     </property>
     <property name="text">
      <string>Responderを非表示</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="ButtonTalk">
-    <property name="geometry">
-     <rect>
-      <x>690</x>
-      <y>540</y>
-      <width>160</width>
-      <height>40</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>話す（テキスト置き換え）</string>
     </property>
    </widget>
    <widget class="QLabel" name="LabelResponce">
@@ -114,6 +101,64 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
+   <widget class="QLineEdit" name="lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>5</x>
+      <y>540</y>
+      <width>680</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ButtonTalk">
+    <property name="geometry">
+     <rect>
+      <x>680</x>
+      <y>540</y>
+      <width>160</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>話す</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="LabelShowimg">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>0</y>
+      <width>500</width>
+      <height>300</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="qt_resourece.qrc">:/re/UI_character/nomal .png</pixmap>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>false</bool>
+    </property>
+    <property name="indent">
+     <number>-1</number>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -124,9 +169,93 @@
      <height>26</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>ファイル</string>
+    </property>
+    <addaction name="menuClose"/>
+   </widget>
+   <addaction name="menu"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="menuClose">
+   <property name="text">
+    <string>close</string>
+   </property>
+  </action>
  </widget>
- <resources/>
- <connections/>
+ <resources>
+  <include location="qt_resourece.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>ButtonTalk</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>button_talk_slot()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>711</x>
+     <y>581</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>636</x>
+     <y>541</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>RadioButton_1</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>show_responder_name()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>64</x>
+     <y>541</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>126</x>
+     <y>533</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>RadioButton_2</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>hidden_responder_name()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>296</x>
+     <y>543</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>352</x>
+     <y>545</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>menuClose</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>427</x>
+     <y>312</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>button_talk_slot()</slot>
+  <slot>show_responder_name()</slot>
+  <slot>hidden_responder_name()</slot>
+ </slots>
 </ui>
