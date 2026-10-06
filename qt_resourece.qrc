@@ -1,5 +1,9 @@
 <RCC>
   <qresource prefix="re">
     <file>UI_character/nomal .png</file>
+    <file>nomal .png</file>
+  </qresource>
+  <qresource prefix="newPrefix">
+    <file>nomal .png</file>
   </qresource>
 </RCC>

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'qt_Pityna.ui'
+# Form implementation generated from reading ui file 'C:\Users\Rtana\個人開発\text_pytyna\qt_Pityna.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -98,4 +98,5 @@ class Ui_MainWindow(object):
         self.ButtonTalk.setText(_translate("MainWindow", "話す"))
         self.menu.setTitle(_translate("MainWindow", "ファイル"))
         self.menuClose.setText(_translate("MainWindow", "close"))
-import qt_resourece_rc
+import qt_resource_rc
+

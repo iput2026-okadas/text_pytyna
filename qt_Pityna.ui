@@ -186,6 +186,7 @@
  </widget>
  <resources>
   <include location="qt_resourece.qrc"/>
+  <include location="qt_resourece.qrc"/>
  </resources>
  <connections>
   <connection>
