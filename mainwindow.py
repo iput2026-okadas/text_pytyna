@@ -1,6 +1,6 @@
 from PyQt5 import QtWidgets
 import qt_pitynaui
-#import pityna
+import pityna
 
 class MainWindow(QtWidgets.QMainWindow):
     """
@@ -18,16 +18,30 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def __init__(self):
         super().__init__()
-        #self.pityna = pityna.Pityna('pityna')
+        self.pityna = pityna.Pityna('pityna')
         self.action = True
         self.ui = qt_pitynaui.Ui_MainWindow()
         self.ui.setupUi(self)
+
+    def putlog(self, str):
+        """
+        ログ用のリストにテキストを追加するメソッド
+        """
+        self.ui.listWidget.addItem(str)
+        """
+        AttributeError: 'Ui_MainWindow' object has no attribute 'ListWidgetLog'. Did you mean: 'listWidget'?
+        """
 
     def prompt(self):
         """
         ピティナのプロンプト
         """
-        p=self.pityna.det_name()
+        p=self.pityna.get_name()
+        """
+        AttributeError: 'Pityna' object has no attribute 'det_name'. Did you mean: 'get_name'?
+        def ✖
+        get 〇
+        """
         if self.action == True:
             p +=':' + self.pityna.get_responder_name()
         return p + '>'
@@ -40,17 +54,19 @@ class MainWindow(QtWidgets.QMainWindow):
 
         if not value:
             #未入力の場合の表示
-            self.ui.LabelReaponce.setText('何か入力してください')
+            self.ui.LabelResponce.setText('何か入力してください')
+            """AttributeError:存在しない属性にアクセスしようとした場合に発生するエラー（LabelReaponce）"""
         else:
             #発言があれば対話オブジェクトを実行
             #応答メッセージを出力
             response = self.pityna.dialogue(value)
             #プロンプト記号にユーザーの発言を連結してログ用のリストに出力
-            self.ui.LabelReaponce.setText(response)
+            self.ui.LabelResponce.setText(response)
             #ピティナのプロンプト記号に応答メッセージを連結してログ用のリストに出力
             self.putlog('>'+value)
             self.putlog(self.prompt() + response)
             self.ui.lineEdit.clear()
+            """AttributeError:putlogがなかった"""
 
     def closeEvent(self, event):
         """

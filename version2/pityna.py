@@ -1,4 +1,4 @@
-import responder
+import text_pytyna.responder as responder
 
 class pityna(object):
     """ピティナ本体"""
