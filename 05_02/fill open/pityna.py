@@ -25,3 +25,6 @@ class Pityna(object):
         ピティナの名前を返す
         """
         return self.name
+
+print(responder.__file__)
+print(dir(responder))
