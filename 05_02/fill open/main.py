@@ -3,7 +3,8 @@ from PyQt5 import QtWidgets
 import mainwindow
 
 if __name__ == "__main__":
-    #QApplicationはウィンドウシステムを初期化しコマンドライン引数を使用してアプリケーションオブジェクトを構築
+    #QApplicationはウィンドウシステムを
+    # 初期化しコマンドライン引数を使用してアプリケーションオブジェクトを構築
     app = QtWidgets.QApplication(sys.argv)
 
     #画面を構築するMainWindowクラスのオブジェクト生成
