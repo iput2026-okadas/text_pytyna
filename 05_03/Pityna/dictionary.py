@@ -62,7 +62,7 @@ class Dictionary(object):
         #'pattern'キー：応答フレーズ（メッセージ）
         pattern_dict={}
         for line in pattern_list:
-            ptn,prs=line.split('\t')#多重代入
+            ptn,prs=line.split('\t')#多重 代入
             pattern_dict.setdefault('pattern',[]).append(ptn)
             pattern_dict.setdefault('phrases',[]).append(prs)
         return pattern_dict

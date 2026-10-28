@@ -1,5 +1,5 @@
 import random
-import os
+import re
 
 
 class Responder(object):
@@ -15,24 +15,40 @@ class Responder(object):
 
 class RepeatResponder(Responder):
     """おうむ返し用のサブクラス"""
-    def response(self, input):
+    def __init__(self, name):
+        super().__init__(name)
+
+    def response(self, name):
         """response()をオーバーライド、おうむ返しの返答をする"""
         return '{}って何？'.format(input)
 
 
 class RandomResponder(Responder):
-    """ランダムな応答のためのサブクラス"""
-    def __init__(self, name):
+    """ランダムな応答のためのサブクラス
+
+    """
+
+    def __init__(self, name,dic_random):
         super().__init__(name)
-        self.responses = []
-        path = os.path.join(os.path.dirname(__file__), 'dics', 'random.txt')
-        rfile = open(path, 'r', encoding='utf-8')
-        r_lines = rfile.readlines()
-        rfile.close()
-        for line in r_lines:
-            str = line.rstrip('\n')
-            if str != '':
-                self.responses.append(str)
+        self.random = dic_random
 
     def response(self, input):
         return random.choice(self.responses)
+
+class PatternResponder(Responder):
+    """パターンに反応するためのサブクラス"""
+    def __init__(self,name,dictionary):
+        super().__init__(name)
+        self.dictionary = dictionary
+
+    def response(self,input):
+        """パターンにマッチした場合に応答フレーズを抽出して返す"""
+        for ptn,prs in zip(
+            self.doctinary.pattern['pattern'],
+            self.dictinary.pattern['phrases']
+        ):
+            m =re.serch(ptn,input)
+            if m:
+                resp =random.choice(prs.split('|'))
+                return re.sub('%match%',m.group(),resp)
+        return random.choice(self.dictionary.random)
